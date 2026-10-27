@@ -1,0 +1,17 @@
+{
+  "name": "ai-resume-analyzer-server",
+  "version": "4.6.4",
+  "private": true,
+  "type": "module",
+  "description": "Portable Express API for the AI Career Suite with five-model Gemini routing, ATS scoring, career workflows, tracking, analytics, and JSON-backed persistence.",
+  "dependencies": {
+    "@google/genai": "^1.27.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "pdfjs-dist": "^6.3.289"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "ai-resume-analyzer",
+  "version": "4.6.4",
+  "private": true,
+  "type": "module",
+  "description": "Modernized AI career suite with a no-scroll login screen, clean responsive navigation, informational pages, branded 404 handling, and network-aware multi-model Gemini failover.",
+  "workspaces": [
+    "server"
+  ],
+  "scripts": {
+    "postinstall": "patch-package && node scripts/copy-pdf-worker.mjs",
+    "dev": "concurrently -k -n client,server -c cyan,magenta \"npm:dev:client\" \"npm:dev:server\"",
+    "dev:client": "react-router dev",
+    "dev:server": "node scripts/server-preflight.mjs && node --watch server/index.js",
+    "build": "react-router build",
+    "start": "node scripts/server-preflight.mjs && node server/index.js",
+    "typecheck": "react-router typegen && tsc",
+    "reinstall": "node scripts/reinstall.mjs",
+    "check:server": "node scripts/server-preflight.mjs",
+    "test:failover": "node --test tests/gemini-failover.test.mjs"
+  },
+  "dependencies": {
+    "@react-router/node": "7.18.4",
+    "isbot": "^5.2.2",
+    "pdfjs-dist": "^6.3.289",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router": "7.18.4",
+    "tw-animate-css": "^1.4.0",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@react-router/dev": "7.18.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "concurrently": "^9.1.2",
+    "patch-package": "^8.0.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vite": "8.3.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,23 @@
+.DS_Store
+node_modules/
+build/
+dist/
+.react-router/
+.vite/
+.vercel/
+coverage/
+*.log
+
+# Environment secrets: examples are safe templates; actual .env files are not.
+.env
+.env.*
+!.env.example
+server/.env
+server/.env.*
+!server/.env.example
+
+# Local persistence and uploaded user content
+server/data.json
+server/data.sqlite
+server/data.sqlite-*
+server/uploads/
